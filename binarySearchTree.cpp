@@ -12,6 +12,54 @@ class val_not_found{};
 BasicTree::BasicTree() : root{nullptr} {}
 BasicTree::BasicTree(int i) : root{new Node(i)} {}
 
+BasicTree::~BasicTree(Node* n){
+	remove_sub(root);	
+}
+
+BasicTree::remove_sub(Node* n){
+	if(n != nullptr){
+		if(n -> left != nullptr)
+			remove_sub(n->left);
+		if(n-> right != nullptr)
+			remove_sub(n->right);
+	delete n;
+	} else{ return;}		
+}
+
+BasicTree::BasicTree(BasicTree const& rhs){
+	Node* n =  rhs.root;
+	if(n == nullptr)
+		root = nullptr;
+	if(n != nullptr)
+		root = helper(h)
+}
+
+Node* BasicTree:helper(Node* const n){
+	Node* h = new Node();
+	if(h) {
+		h->data = n->data;
+		if(n -> left != nullptr)
+			h->left = helper(n->left);
+		if(n-> right != nullptr)
+			n->right = helper(n->right);
+	}
+	return newNode;	
+}
+
+BasicTree& BasicTree::operator=(BasicTree const& source)
+{
+	Node* n = soource.root;
+	if(n == nullptr)
+		root = nullptr;
+	CopyAssist(n);
+}
+	
+}
+	   
+void BasicTree::CopyAssist(Node* n)
+{
+	
+}
 void BasicTree::insert(int val)
 {
     // 1. Check whether the tree is empty or not;
